@@ -11,7 +11,10 @@ RUN mkdir -p /data/packages
 WORKDIR /data
 VOLUME ["/data"]
 
+# Config directory
+RUN mkdir -p /config
+
 # Run baby run !
 ENTRYPOINT ["pypi-server"]
-CMD ["-p", "80", "--passwords", "/data/.htpasswd", "packages"]
+CMD ["-p", "80", "--passwords", "/config/.htpasswd", "packages"]
 EXPOSE 80
